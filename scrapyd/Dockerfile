@@ -14,17 +14,23 @@ RUN apt-get update && apt-get install -y \
     python \
     python-dev \
     python-setuptools \
-    vim-tiny
-
-RUN easy_install -U pip
-
-RUN pip install \
+    vim-tiny \
+&& easy_install -U pip \
+&& pip install \
     git+https://github.com/scrapy/scrapy.git \
     git+https://github.com/scrapy/scrapyd.git \
-    git+https://github.com/scrapy/scrapyd-client.git
+    git+https://github.com/scrapy/scrapyd-client.git \
+&& apt-get purge -y --auto-remove \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    python-dev \
+&& rm -Rf /var/lib/apt/lists/*
 
 ADD ./scrapyd.conf /etc/scrapyd/
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/
 EXPOSE 6800
 
-CMD ['scrapyd']
+CMD ["scrapyd"]
