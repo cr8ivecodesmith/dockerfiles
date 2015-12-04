@@ -10,23 +10,15 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libxml2-dev \
     libxslt1-dev \
-    libtool \
     python \
     python-dev \
     python-setuptools \
     vim-tiny \
 && easy_install -U pip \
-&& pip install \
-    git+https://github.com/scrapy/scrapy.git \
-    git+https://github.com/scrapy/scrapyd.git \
-    git+https://github.com/scrapy/scrapyd-client.git \
-&& apt-get purge -y --auto-remove \
-    build-essential \
-    libffi-dev \
-    libssl-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    python-dev \
+&& pip install -U \
+    scrapy \
+    scrapyd \
+    scrapyd-client \
 && rm -Rf /var/lib/apt/lists/*
 
 ADD ./scrapyd.conf /etc/scrapyd/
