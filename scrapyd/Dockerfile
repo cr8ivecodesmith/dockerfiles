@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 ENV DEBIAN_FRONTEND noninteractive
-MAINTAINER matt lebrun <lebrun.matt@gmail.com>
+MAINTAINER matt lebrun <matt@lebrun.org>
 
 RUN apt-get update && apt-get install -y \
     build-essential \

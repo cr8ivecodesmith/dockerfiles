@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    build:
+        restart: always
+        build: .
+        image: py3kit:latest
+        container_name: py3kit
+    notebook:
+        extends:
+            service: build
+        ports:
+            - "8888:8888"
+        command: ipython notebook
+    ipython:
+        extends:
+            service: build
+        command: ipython

@@ -1,8 +1,8 @@
-FROM cr8ivecodesmith/scrapyd
+FROM cr8ivecodesmith/py3kit
 MAINTAINER matt lebrun <matt@lebrun.org>
 
-ONBUILD ADD ./*.txt /etc/scrapyd/
-ONBUILD RUN cd /etc/scrapyd; \
+ONBUILD ADD ./*.txt /opt/
+ONBUILD RUN cd /opt/; \
     [ -f packages.txt -o -f dependencies.txt ] && apt-get update; \
     [ -f packages.txt ] && xargs -r apt-get install -y < packages.txt; \
     [ -f dependencies.txt ] && xargs -r apt-get install -y < dependencies.txt; \

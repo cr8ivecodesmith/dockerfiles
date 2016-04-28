@@ -1,0 +1,30 @@
+#### utilities
+ipython
+
+#### data science/analysis
+numpy
+scipy
+matplotlib
+pandas
+nltk
+scikit-learn
+
+#### web scraping
+scrapy==1.1.0rc3  # This is the version that has 95% support for py3k
+
+#### web development
+django
+django-extensions
+flask
+jinja2
+wtforms
+# We are sticking to the 0.10.x branch so we can have the browser debugger
+# working without the PIN code
+werkzeug==0.10.4
+
+#### database
+sqlalchemy
+psycopg2  # Allows support for PostgreSQL
+
+#### performance
+cython
