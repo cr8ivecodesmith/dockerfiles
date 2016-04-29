@@ -1,4 +1,4 @@
-FROM cr8ivecodesmith/pykit:latest
+FROM cr8ivecodesmith/pykit:2.7
 MAINTAINER matt lebrun <matt@lebrun.org>
 
 ONBUILD ADD ./*.txt /opt/

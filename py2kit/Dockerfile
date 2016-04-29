@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:2.7
 MAINTAINER matt lebrun <matt@lebrun.org>
 
 RUN mkdir /_build/

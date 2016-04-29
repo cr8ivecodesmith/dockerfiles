@@ -18,6 +18,7 @@ django-extensions
 flask
 jinja2
 wtforms
+requests
 # We are sticking to the 0.10.x branch so we can have the browser debugger
 # working without the PIN code
 werkzeug==0.10.4
