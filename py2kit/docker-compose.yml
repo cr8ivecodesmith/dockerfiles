@@ -15,9 +15,21 @@ services:
         volumes:
             - .:/usr/src/project
         working_dir: "/usr/src/project"
+    notebook:
+        extends:
+            service: build
+        volumes:
+            - .:/usr/src/project
+            - ./etc:/etc/jupyter
+            - ./share:/usr/share/jupyter
+        ports:
+            - "8888:8888"
+        command: jupyter notebook
     kit:
         extends:
             service: build
+        volumes:
+            - .:/usr/src/project
         ports:
             - "8888:8888"
             - "8000:8000"

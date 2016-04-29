@@ -50,7 +50,7 @@ docker-compose run --rm ipython
 #### Run an ipython notebook server
 
 ```
-docker-compose run --rm --service-ports -v `pwd`:/notebooks -w /notebooks notebook
+docker-compose run -u "$(id -u):$(id -g)" --rm --service-ports notebook
 ```
 
 Then visit your browser at:
