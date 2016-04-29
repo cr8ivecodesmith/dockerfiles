@@ -1,5 +1,6 @@
 #### utilities
 ipython
+jupyter
 
 #### data science/analysis
 numpy

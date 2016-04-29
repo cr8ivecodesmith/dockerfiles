@@ -32,7 +32,6 @@ to run the compose commands below.
 
 #### Run as a specific user
 
-
 ```
 docker run --rm -it --user "$(id -u):$(id -g)" cr8ivecodesmith/pykit <command>
 ```
