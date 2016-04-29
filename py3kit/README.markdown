@@ -3,10 +3,10 @@ Python3 Development Toolkit
 
 A bleeding edge development environment for Python3.
 
-Most suitable for experimentations and writing your own notebooks and teaching
-python.
+Most suitable for experimentations, writing your own notebooks, and teaching
+and learning python.
 
-See other packages installed in the `requirements.txt` file.
+See other packages installed in the [requirements.txt][3] file.
 
 
 ## Requirements
@@ -21,6 +21,10 @@ Docker images of the ff:
 
 
 ## Usages
+
+You may have to get a copy of the Docker compose file fromt the Github repo
+to run the compose commands below.
+
 
 #### Run as a specific user
 
@@ -60,3 +64,4 @@ image.
 
 [1]: https://docs.docker.com/engine/installation/
 [2]: https://docs.docker.com/compose/install/
+[3]: https://github.com/cr8ivecodesmith/dockerfiles/blob/master/py3kit/requirements.txt
