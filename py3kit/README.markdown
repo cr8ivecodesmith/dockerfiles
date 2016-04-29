@@ -6,21 +6,19 @@ A bleeding edge development environment for Python.
 Most suitable for experimentations, writing your own notebooks, and teaching
 and learning python.
 
-See other packages installed in the [requirements.txt][3] file.
-
 
 ## Requirements
 
 Latest [Docker][1] and [Docker Compose][2] for your OS.
 
 
-Docker images of the ff:
+## Included Python packages
 
-- python:latest
-- python:2.7
+- [python:latest][3]
+- [python:2.7][4]
 
 
-## Tags
+## Available Tags
 
 - cr8ivecodesmith/pykit:latest
 - cr8ivecodesmith/pykit:2.7
@@ -34,7 +32,7 @@ to run the compose commands below.
 
 #### Run as a specific user
 
-A default non-root user is created called `pykit` and is used the run python
+A default non-root user is created called `pykit` and is used to run python
 
 See the `USER` section in:
 https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
@@ -60,8 +58,16 @@ http://localhost:8888/
 
 #### Start a Django project
 
+On Python 3:
+
 ```
-docker run --rm -it -u pykit -v `pwd`:/projects -w /projects pykit:latest django-admin startproject helloapp
+docker run --rm -it -v `pwd`:/projects -w /projects cr8ivecodesmith/pykit:latest django-admin startproject helloapp
+```
+
+On Python 2.7:
+
+```
+docker run --rm -it -v `pwd`:/projects -w /projects cr8ivecodesmith/pykit:2.7 django-admin startproject helloapp
 ```
 
 You can also use the same approach above to run other built-in packages in this
@@ -70,4 +76,5 @@ image.
 
 [1]: https://docs.docker.com/engine/installation/
 [2]: https://docs.docker.com/compose/install/
-[3]: https://github.com/cr8ivecodesmith/dockerfiles/blob/master/pykit/requirements.txt
+[3]: https://github.com/cr8ivecodesmith/dockerfiles/blob/master/py3kit/requirements.txt
+[4]: https://github.com/cr8ivecodesmith/dockerfiles/blob/master/py2kit/requirements.txt
