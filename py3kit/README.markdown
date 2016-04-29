@@ -22,19 +22,15 @@ Docker images of the ff:
 
 ## Usages
 
-#### Running as specific user
+#### Run as a specific user
 
-A default non-root user is created called `py3kit` which is assigned the default
-UID for first users.
-
-If you have a different UID, you must create a new image based on this with a
-user that has the same UID.
+A default non-root user is created called `py3kit`.
 
 See the `USER` section in:
 https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
 
 
-#### Run a ipython shell
+#### Run an ipython shell
 
 ```
 docker-compose run --rm ipython
