@@ -4,8 +4,9 @@ services:
     build:
         restart: always
         build: .
-        image: py3kit:latest
+        image: cr8ivecodesmith/py3kit:latest
         container_name: py3kit
+        user: py3kit
     notebook:
         extends:
             service: build
