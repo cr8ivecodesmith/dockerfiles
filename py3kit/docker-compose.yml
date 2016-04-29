@@ -1,3 +1,9 @@
+# Usage:
+# Copy this compose file to your project's directory.
+#
+# Always run this with the context of the current user:
+# docker-compose run --rm -u "$(id -u):$(id -g)" --service-ports kit <commands>
+#
 version: '2'
 
 services:
@@ -6,14 +12,13 @@ services:
         build: .
         image: cr8ivecodesmith/pykit:latest
         container_name: py3kit
-        user: pykit
-    notebook:
+        volumes:
+            - .:/usr/src/project
+        working_dir: "/usr/src/project"
+    kit:
         extends:
             service: build
         ports:
             - "8888:8888"
-        command: ipython notebook
-    ipython:
-        extends:
-            service: build
-        command: ipython
+            - "8000:8000"
+            - "5000:5000"

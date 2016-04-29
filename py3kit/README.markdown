@@ -32,7 +32,10 @@ to run the compose commands below.
 
 #### Run as a specific user
 
-A default non-root user is created called `pykit` and is used to run python
+
+```
+docker run --rm -it --user "$(id -u):$(id -g)" cr8ivecodesmith/pykit <command>
+```
 
 See the `USER` section in:
 https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
@@ -61,13 +64,13 @@ http://localhost:8888/
 On Python 3:
 
 ```
-docker run --rm -it -v `pwd`:/projects -w /projects cr8ivecodesmith/pykit:latest django-admin startproject helloapp
+docker run --rm -it --user "$(id -u):$(id -g)" -v `pwd`:/usr/src/app -w /usr/src/app cr8ivecodesmith/pykit:latest django-admin.py startproject helloworldapp
 ```
 
 On Python 2.7:
 
 ```
-docker run --rm -it -v `pwd`:/projects -w /projects cr8ivecodesmith/pykit:2.7 django-admin startproject helloapp
+docker run --rm -it --user "$(id -u):$(id -g)" -v `pwd`:/usr/src/app -w /usr/src/app cr8ivecodesmith/pykit:2.7 django-admin.py startproject helloworldapp
 ```
 
 You can also use the same approach above to run other built-in packages in this
