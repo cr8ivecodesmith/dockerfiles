@@ -3,6 +3,7 @@
 #
 # Always run this with the context of the current user:
 # docker-compose run --rm -u "$(id -u):$(id -g)" --service-ports kit <commands>
+# docker-compose run --rm -u "$(id -u):$(id -g)" --service-ports notebook
 #
 version: '2'
 
@@ -14,11 +15,20 @@ services:
         container_name: py3kit
         volumes:
             - .:/usr/src/project
+            - .home:/.home
+        environment:
+            HOME: "/.home"
         working_dir: "/usr/src/project"
     kit:
         extends:
             service: build
         ports:
-            - "8888:8888"
             - "8000:8000"
             - "5000:5000"
+        command: /bin/bash
+    notebook:
+        extends:
+            service: build
+        ports:
+            - "8888:8888"
+        command: jupyter notebook --ip 0.0.0.0 --no-browser

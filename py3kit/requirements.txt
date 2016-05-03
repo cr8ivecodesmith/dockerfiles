@@ -1,6 +1,8 @@
 #### utilities
 ipython
 jupyter
+ipykernel
+widgetsnbextension
 
 #### data science/analysis
 numpy
