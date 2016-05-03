@@ -12,7 +12,7 @@ services:
         restart: always
         build: .
         image: cr8ivecodesmith/pykit:2.7
-        container_name: py3kit
+        container_name: py2kit
         volumes:
             - .:/usr/src/project
             - .home:/.home
@@ -23,6 +23,8 @@ services:
     kit:
         extends:
             service: build
+        volumes:
+            - .:/usr/src/project
         ports:
             - "8000:8000"
             - "5000:5000"
